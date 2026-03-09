@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require("cors");
+const taskRoutes = require('./routes/taskRouter');
 
 const app = express();
 
@@ -9,9 +10,7 @@ app.use(express.json());
 
 
 //routes
-app.get('/', (req, res) => {
-    res.json({message: "API running"})
-})
+app.use('/api/tasks', taskRoutes);
 
 
 module.exports = app;
